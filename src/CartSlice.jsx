@@ -28,10 +28,18 @@ export const CartSlice = createSlice({
                 itemToUpdate.quantity = quantity;
             }
         },
+        updateCost: (state, action) => {
+            const { name, cost } = action.payload;
+            const itemToUpdate = state.items.find(item => item.name === name);
+            console.log('Cost', cost, name);
+            if (itemToUpdate) {
+                itemToUpdate.cost = cost;
+            }
+        },
     },
 });
 
-export const { addItem, removeItem, updateQuantity } = CartSlice.actions;
+export const { addItem, removeItem, updateQuantity, updateCost } = CartSlice.actions;
 
 export default CartSlice.reducer;
- 
+  
