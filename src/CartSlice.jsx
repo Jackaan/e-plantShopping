@@ -28,6 +28,14 @@ export const CartSlice = createSlice({
                 itemToUpdate.quantity = quantity;
             }
         },
+        updateCost: (state, action) => {
+            const { name, quantity, cost } = action.payload;
+            const itemToRevealCost = state.items.find(item => item.name === name);
+            console.log("Cost for this Plant: ", cost, "Amount: ", quantity);
+            if(itemToRevealCost) {
+                itemToRevealCost.cost = cost;
+            }
+        },
     },
 });
 
